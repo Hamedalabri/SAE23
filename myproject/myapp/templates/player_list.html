@@ -1,34 +1,31 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Liste des joueurs</title>
-</head>
-<body>
-    <h1>Liste des joueurs</h1>
 
-    <!-- Affichage des joueurs -->
-    <table>
+{% extends "base.html" %}
+{% block content %}
+{% block title %}Liste des joueurs{% endblock %}
+<div class="card-body">
+
+    <h1>Liste des joueurs</h1>
+    
+    <table class="table">
         <thead>
             <tr>
-                <th>Nom</th>
-                <th>Âge</th>
-                <th>Poste</th>
-                <th>Actions</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Âge</th>
+                <th scope="col">Poste</th>
+                <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
             <!-- Boucle pour afficher chaque joueur -->
-            {% for player in players %}
+            {% for joueur in joueurs %}
             <tr>
                 <td>{{ joueur.nom }}</td>
                 <td>{{ joueur.age }}</td>
                 <td>{{ joueur.poste }}</td>
                 <td>
                     <!-- Boutons pour les opérations CRUD -->
-                    <a href="{% url 'detail_joueur' joueur.id %}">Détails</a>
-                    <a href="{% url 'modifier_joueur' joueur.id %}">Modifier</a>
-                    <a href="{% url 'supprimer_joueur' joueur.id %}">Supprimer</a>
+                    <a type="button" class="btn btn-warning" href="{% url 'update_player' joueur.id %}">Modifier</a>
+                    <a type="button" class="btn btn-danger" href="{% url 'delete_player' joueur.id %}">Supprimer</a>
                 </td>
             </tr>
             {% endfor %}
@@ -36,6 +33,6 @@
     </table>
 
     <!-- Bouton pour ajouter un nouveau joueur -->
-    <a href="{% url 'ajouter_joueur' %}">Ajouter un joueur</a>
-</body>
+    <a href="{% url 'create_player' %}">Ajouter un joueur</a>
+</div>
 </html>
