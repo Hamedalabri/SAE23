@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Créer un jeu</title>
+</head>
+<body>
+    <h1>Créer un jeu</h1>
+    <form action="/jeux" method="POST">
+        <label for="nom">Nom du jeu:</label>
+        <input type="text" id="nom" name="nom" required><br><br>
+        
+        <label for="genre">Genre:</label>
+        <select id="genre" name="genre">
+            <option value="action">Action</option>
+            <option value="aventure">Aventure</option>
+            <option value="strategie">Stratégie</option>
+            <option value="sport">Sport</option>
+        </select><br><br>
+        
+        <label for="plateforme">Plateforme:</label>
+        <input type="text" id="plateforme" name="plateforme" required><br><br>
+        
+        <label for="date_sortie">Date de sortie:</label>
+        <input type="date" id="date_sortie" name="date_sortie" required><br><br>
+        
+        <input type="submit" value="Créer">
+    </form>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des joueurs</title>
+</head>
+<body>
+    <h1>Liste des joueurs</h1>
+
+    <!-- Affichage des joueurs -->
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Âge</th>
+                <th>Poste</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Boucle pour afficher chaque joueur -->
+            {% for player in players %}
+            <tr>
+                <td>{{ joueur.nom }}</td>
+                <td>{{ joueur.age }}</td>
+                <td>{{ joueur.poste }}</td>
+                <td>
+                    <!-- Boutons pour les opérations CRUD -->
+                    <a href="{% url 'detail_joueur' joueur.id %}">Détails</a>
+                    <a href="{% url 'modifier_joueur' joueur.id %}">Modifier</a>
+                    <a href="{% url 'supprimer_joueur' joueur.id %}">Supprimer</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Bouton pour ajouter un nouveau joueur -->
+    <a href="{% url 'ajouter_joueur' %}">Ajouter un joueur</a>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mise à jour du commentaire</title>
+</head>
+<body>
+    <h1>Mise à jour du commentaire</h1>
+    
+    <form action="/commentaire/modifier" method="POST">
+        <input type="hidden" name="id" value="{{ commentaire.id }}">
+        
+        <label for="contenu">Contenu :</label>
+        <textarea name="contenu" id="contenu">{{ commentaire.contenu }}</textarea>
+        
+        <button type="submit">Mettre à jour</button>
+    </form>
+</body>
+</html>

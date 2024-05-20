@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Créer un joueur</title>
+</head>
+<body>
+    <h1>Créer un joueur</h1>
+    <form action="/joueurs" method="POST">
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom" name="nom" required><br><br>
+        
+        <label for="age">Âge:</label>
+        <input type="number" id="age" name="age" required><br><br>
+        
+        <label for="position">Position:</label>
+        <select id="position" name="position" required>
+            <option value="gardien">Gardien</option>
+            <option value="défenseur">Défenseur</option>
+            <option value="milieu">Milieu</option>
+            <option value="attaquant">Attaquant</option>
+        </select><br><br>
+        
+        <input type="submit" value="Créer">
+    </form>
+</body>
+</html>

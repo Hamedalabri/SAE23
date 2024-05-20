@@ -2,12 +2,12 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-from .models import Player, Comment, GameList, Jeux
-from .forms import PlayerForm, CommentForm, GameListForm
+from .models import Categoriesjeux, Comment, GameList, Jeux , Auteurs
+from .forms import PlayerForm, CommentForm, GameListForm , CategoriesjeuxForm , JeuxForm , AuteursForm
 
 User = get_user_model()
 
-# Player CRUD operations
+# Player CRUD 
 @login_required
 def create_player(request):
     if request.method == 'POST':
@@ -44,7 +44,7 @@ def delete_player(request, pk):
         return redirect('player_list')
     return render(request, 'delete_player.html', {'player': player})
 
-# Comment CRUD operations
+# Comment CRUD 
 @login_required
 def create_comment(request):
     if request.method == 'POST':
@@ -81,7 +81,7 @@ def delete_comment(request, pk):
         return redirect('comment_list')
     return render(request, 'delete_comment.html', {'comment': comment})
 
-# GameList CRUD operations
+# GameList CRUD 
 @login_required
 def create_game_list(request):
     if request.method == 'POST':
@@ -117,3 +117,105 @@ def delete_game_list(request, pk):
         game_list.delete()
         return redirect('game_list_list')
     return render(request, 'delete_game_list.html', {'game_list': game_list})
+
+#CRUD Categorie
+
+def create_categorie(request):
+    if request.method == 'POST':
+        form = CategoriesjeuxForm (request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('categorie_index')
+    else:
+        form = CategoriesjeuxForm()
+    return render(request, 'create_categorie.html', {'form': form})
+
+def delete_categorie(request, id):
+    Categorie = Categoriesjeux.objects.get(pk=id)
+    Categorie.delete()
+    return HttpResponse("/categorie_index/")
+
+def index_categorie(request):
+    liste = Categoriesjeux.objects.all()
+    return render(request, 'categorie_index.html',{"liste":liste})
+
+def update_categorie(request, pk):
+    categorie = get_object_or_404(Categoriesjeux, pk=pk)
+    if request.method == 'POST':
+        form = CategoriesjeuxForm(request.POST, instance=categorie)
+        if form.is_valid():
+            form.save()
+            return redirect('index_categorie')
+    else:
+        form = CategoriesjeuxForm(instance=categorie)
+    return render(request, 'update_categorie.html', {'form': form})
+
+#CRUD Jeux
+
+def create_jeux(request):
+    if request.method == 'POST':
+        form = JeuxForm (request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('jeux_index')
+    else:
+        form = JeuxForm()
+    return render(request, 'create_jeux.html', {'form': form})
+
+def delete_jeux(request, id):
+    Jeux = Jeux.objects.get(pk=id)
+    Jeux.delete()
+    return HttpResponse("/jeux_index/")
+
+def index_jeux(request):
+    liste = Jeux.objects.all()
+    return render(request, 'jeux_index.html',{"liste":liste})
+
+def update_jeux(request, pk):
+    jeux = get_object_or_404(Jeux, pk=pk)
+    if request.method == 'POST':
+        form = JeuxForm(request.POST, instance=jeux)
+        if form.is_valid():
+            form.save()
+            return redirect('index_jeux')
+    else:
+        form = JeuxForm(instance=jeux)
+    return render(request, 'update_jeux.html', {'form': form})
+
+
+#CRUD Auteurs
+
+def create_auteurs(request):
+    if request.method == 'POST':
+        form = AuteursForm (request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('auteurs_index')
+    else:
+        form = AuteursForm()
+    return render(request, 'create_auteurs.html', {'form': form})
+
+def delete_auteurs(request, id):
+    Auteurs = Auteurs.objects.get(pk=id)
+    Auteurs.delete()
+    return HttpResponse("/auteurs_index/")
+
+def index_auteurs(request):
+    liste = Auteurs.objects.all()
+    return render(request, 'auteurs_index.html',{"liste":liste})
+
+def update_auteurs(request, pk):
+    auteurs = get_object_or_404(Auteurs, pk=pk)
+    if request.method == 'POST':
+        form = AuteursForm(request.POST, instance=auteurs)
+        if form.is_valid():
+            form.save()
+            return redirect('index_auteurs')
+    else:
+        form = AuteursForm(instance=auteurs)
+    return render(request, 'update_auteurs.html', {'form': form})
+
+
+
+def home(request):
+    return render(request, 'home.html')

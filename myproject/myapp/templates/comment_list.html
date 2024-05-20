@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des commentaires</title>
+</head>
+<body>
+    <h1>Liste des commentaires</h1>
+
+    <!-- Affichage des commentaires existants -->
+    <h2>Commentaires existants :</h2>
+    <ul>
+        <li>Commentaire 1</li>
+        <li>Commentaire 2</li>
+        <li>Commentaire 3</li>
+    </ul>
+
+    <!-- Formulaire de création d'un nouveau commentaire -->
+    <h2>Ajouter un commentaire :</h2>
+    <form action="/ajouter_commentaire" method="POST">
+        <label for="commentaire">Commentaire :</label>
+        <input type="text" id="commentaire" name="commentaire" required>
+        <button type="submit">Ajouter</button>
+    </form>
+
+    <!-- Formulaire de mise à jour d'un commentaire existant -->
+    <h2>Modifier un commentaire :</h2>
+    <form action="/modifier_commentaire" method="POST">
+        <label for="commentaire_id">ID du commentaire :</label>
+        <input type="text" id="commentaire_id" name="commentaire_id" required>
+        <label for="nouveau_commentaire">Nouveau commentaire :</label>
+        <input type="text" id="nouveau_commentaire" name="nouveau_commentaire" required>
+        <button type="submit">Modifier</button>
+    </form>
+
+    <!-- Formulaire de suppression d'un commentaire existant -->
+    <h2>Supprimer un commentaire :</h2>
+    <form action="/supprimer_commentaire" method="POST">
+        <label for="commentaire_id">ID du commentaire :</label>
+        <input type="text" id="commentaire_id" name="commentaire_id" required>
+        <button type="submit">Supprimer</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+
+{% block title %}
+Accueil - Ludothèque
+{% endblock %}
+
+{% block content %}
+<div class="home-container">
+    <h1>Bienvenue à la Ludothèque</h1>
+    <p>Votre destination unique pour tous les passionnés de jeux de société !</p>
+    <div class="cta-buttons">
+        <a href="{% url 'player_list' %}" class="btn">Voir les Joueurs</a>
+        <a href="" class="btn">En savoir plus sur nous</a>
+    </div>
+</div>
+{% endblock %}

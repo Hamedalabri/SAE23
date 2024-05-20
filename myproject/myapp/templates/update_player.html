@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mettre à jour le joueur</title>
+</head>
+<body>
+    <h1>Mettre à jour le joueur</h1>
+    
+    <form action="/update_player" method="POST">
+        <label for="name">Nom :</label>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="age">Âge :</label>
+        <input type="number" id="age" name="age" required><br><br>
+        
+        <label for="position">Poste :</label>
+        <input type="text" id="position" name="position" required><br><br>
+        
+        <input type="submit" value="Mettre à jour">
+    </form>
+</body>
+</html>

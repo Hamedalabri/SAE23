@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Modifier la liste des jeux</title>
+</head>
+<body>
+    <h1>Modifier la liste des jeux</h1>
+    
+    <form action="/update_game" method="POST">
+        <label for="game_name">Nom du jeu:</label>
+        <input type="text" id="game_name" name="game_name" required><br><br>
+        
+        <label for="game_genre">Genre du jeu:</label>
+        <input type="text" id="game_genre" name="game_genre" required><br><br>
+        
+        <label for="game_platform">Plateforme du jeu:</label>
+        <input type="text" id="game_platform" name="game_platform" required><br><br>
+        
+        <input type="submit" value="Modifier">
+    </form>
+</body>
+</html>

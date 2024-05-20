@@ -1,1 +1,19 @@
-<div id="hi"></div>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Créer un commentaire</title>
+</head>
+<body>
+    <h1>Créer un commentaire</h1>
+    
+    <form action="/commentaire/creer" method="POST">
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" required><br><br>
+        
+        <label for="message">Message :</label>
+        <textarea id="message" name="message" required></textarea><br><br>
+        
+        <input type="submit" value="Créer">
+    </form>
+</body>
+</html>
