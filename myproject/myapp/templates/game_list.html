@@ -7,7 +7,7 @@
 <body>
     <h1>Liste des jeux</h1>
 
-    <!-- Affichage de la liste des jeux -->
+   
     <table>
         <thead>
             <tr>
@@ -18,14 +18,14 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Boucle pour afficher chaque jeu -->
+           
             {% for jeu in jeux %}
             <tr>
                 <td>{{ jeu.nom }}</td>
                 <td>{{ jeu.genre }}</td>
                 <td>{{ jeu.plateforme }}</td>
                 <td>
-                    <!-- Liens pour les opérations CRUD -->
+               
                     <a href="{% url 'detail_jeu' jeu.id %}">Détails</a>
                     <a href="{% url 'modifier_jeu' jeu.id %}">Modifier</a>
                     <a href="{% url 'supprimer_jeu' jeu.id %}">Supprimer</a>
@@ -35,7 +35,7 @@
         </tbody>
     </table>
 
-    <!-- Lien pour créer un nouveau jeu -->
+   
     <a href="{% url 'creer_jeu' %}">Créer un nouveau jeu</a>
 </body>
 </html>

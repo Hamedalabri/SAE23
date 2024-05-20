@@ -16,14 +16,14 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Boucle pour afficher chaque joueur -->
+            
             {% for joueur in joueurs %}
             <tr>
                 <td>{{ joueur.nom }}</td>
                 <td>{{ joueur.age }}</td>
                 <td>{{ joueur.poste }}</td>
                 <td>
-                    <!-- Boutons pour les opérations CRUD -->
+                   
                     <a type="button" class="btn btn-warning" href="{% url 'update_player' joueur.id %}">Modifier</a>
                     <a type="button" class="btn btn-danger" href="{% url 'delete_player' joueur.id %}">Supprimer</a>
                 </td>
@@ -32,7 +32,7 @@
         </tbody>
     </table>
 
-    <!-- Bouton pour ajouter un nouveau joueur -->
+
     <a href="{% url 'create_player' %}">Ajouter un joueur</a>
 </div>
 </html>
