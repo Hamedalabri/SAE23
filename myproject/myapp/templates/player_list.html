@@ -1,5 +1,5 @@
 
-{% extends "base.html" %}
+{% extends "main.html" %}
 {% block content %}
 {% block title %}Liste des joueurs{% endblock %}
 <div class="card-body">
@@ -35,4 +35,4 @@
 
     <a href="{% url 'create_player' %}">Ajouter un joueur</a>
 </div>
-</html>
+{% endblock %}

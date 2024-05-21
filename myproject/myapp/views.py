@@ -8,7 +8,7 @@ from .forms import PlayerForm, CommentForm, GameListForm , CategoriesjeuxForm , 
 User = get_user_model()
 
 # Player CRUD 
-@login_required
+
 def create_player(request):
     if request.method == 'POST':
         form = PlayerForm(request.POST)
@@ -19,7 +19,7 @@ def create_player(request):
         form = PlayerForm()
     return render(request, 'create_player.html', {'form': form})
 
-@login_required
+
 def player_list(request):
     players = User.objects.all()
     return render(request, 'player_list.html', {'players': players})
